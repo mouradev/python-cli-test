@@ -1,7 +1,7 @@
 # garantir que a string deve conter o formato xx/xx/xxxx
 def validate_date(str_date):
     import re
-    regex = re.compile('.{2}/.{2}/.{4}')
+    regex = re.compile('[0-9]{2}\/[0-9]{2}\/[0-9]{4}')
     if regex.match(str_date) is not None:
 
         # fazer o split da data para garantir que dias terão mais que 0 e menos que 32
@@ -14,7 +14,7 @@ def validate_date(str_date):
             valid_date = False
         if(not (int(splited_date[1]) > 0 and int(splited_date[1]) < 13)):
             valid_date = False
-        if(not (int(splited_date[2]) > 1000)):
+        if(not (int(splited_date[2]) > 1000 and len(splited_date[2]) <= 4)):
             valid_date = False
         
         if(not valid_date):
