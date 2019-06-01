@@ -20,4 +20,6 @@ class TestValidateDate(TestCase):
 
     def test_data_numeros_errados(self):
         data_errada = '99/15/1993'
+        data_errada2 = '063323 ddd/12/555555555'
         self.assertRaises(ValueError, input_validation.validate_date, data_errada)
+        self.assertRaises(ValueError, input_validation.validate_date, data_errada2)
