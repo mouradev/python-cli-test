@@ -11,4 +11,7 @@ class TestValidateDate(TestCase):
 
     # cada metodo que executar um teste de ter o prefixo test_
     def test_validate_date(self):
+        data_certa = self.str_date
+        data_errada = '06121993'
         self.assertEqual(self.str_date, input_validation.validate_date(self.str_date))
+        self.assertNotEqual(data_errada, input_validation.validate_date(data_errada))
