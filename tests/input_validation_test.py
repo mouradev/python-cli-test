@@ -10,8 +10,14 @@ class TestValidateDate(TestCase):
         self.str_date = '06/12/1993'
 
     # cada metodo que executar um teste de ter o prefixo test_
-    def test_validate_date(self):
+    def test_data_certa(self):
         data_certa = self.str_date
-        data_errada = '06121993'
-        self.assertEqual(self.str_date, input_validation.validate_date(self.str_date))
-        self.assertNotEqual(data_errada, input_validation.validate_date(data_errada))
+        self.assertEqual(data_certa, input_validation.validate_date(data_certa))
+
+    def test_data_errada(self):
+        data_errada = '99151993'
+        self.assertRaises(ValueError, input_validation.validate_date, data_errada)
+
+    def test_data_numeros_errados(self):
+        data_errada = '99/15/1993'
+        self.assertRaises(ValueError, input_validation.validate_date, data_errada)
