@@ -2,12 +2,10 @@
 
 # imports area
 import datetime
-import json
 import includes.input_validation as input_validation
+import includes.months as months
 
 # declarations area
-months_json = '{"01": "Janeiro", "02": "Fevereiro", "03": "Março", "04": "Abril", "05": "Maio", "06": "Junho", "07": "Julho", "08": "Agosto", "09": "Setembro", "10": "Outubro", "11": "Novembro", "12": "Dezembro"}'
-months = json.dumps(months_json)
 
 print('Hello World py') #the print command on python 3 requires that use as a function() and use with 'single cotation marks'. In python the '' is more common that ""
 
@@ -27,5 +25,5 @@ while not date_is_valid:
 
 birth = datetime.datetime.strptime(birth_str, '%d/%m/%Y')
 
-# print('O seu aniversário é em', json["birth.strftime('%m')"])
+print('O seu aniversário é em', months.month(birth.strftime('%m')))
 print('Obrigado. Hora do registro:', datetime.datetime.now().strftime('%d/%m/%Y %H:%M'))
